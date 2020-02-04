@@ -1,0 +1,49 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title color="secondary">Login</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-grid>
+    <ion-row>
+      <ion-col align-self-center offset="3">
+        
+        <form class="form" [formGroup]="validations_form"  (ngSubmit)="loginUser()">
+          
+          <ion-item>
+            <ion-label  position="floating" color="tertiary">E-mail</ion-label>
+            <ion-input color ="tertiary" type="text" formControlName="email"></ion-input>
+          </ion-item>
+          <div class="validation-errors">
+            <ng-container *ngFor="let validation of validation_messages.email">
+              <div class="error-message" *ngIf="validations_form.get('email').hasError(validation.type) && (validations_form.get('email').dirty || validations_form.get('email').touched)">
+                {{ validation.message }}
+              </div>
+            </ng-container>
+          </div>
+
+          <ion-item>
+            <ion-label  position="floating" color="tertiary">Mot de passe</ion-label>
+            <ion-input type="password" formControlName="password" class="form-controll" color="tertiary" required></ion-input>
+          </ion-item>
+          <div class="validation-errors">
+            <ng-container *ngFor="let validation of validation_messages.password">
+              <div class="error-messages" *ngIf="validations_form.get('password').hasError(validation.type) && (validations_form.get('password').dirty || validations_form.get('password').touched)">
+                {{ validation.message }}
+              </div>
+            </ng-container>
+          </div>
+
+          <ion-button   class="submit-btn" type="submit"  [disabled]="!validations_form.valid" color="success" (click)="loginUser()">Log In</ion-button>
+
+          <label color="success" class="error-message">{{errorMessage}}</label>
+          
+        </form>
+        <p class="go-to-register" >
+          <a  (click)="goToRegisterPage()" color="tertiary">Pas encore inscrit?</a>
+        </p>
+    </ion-col>
+  </ion-row>
+</ion-grid>
+</ion-content>
