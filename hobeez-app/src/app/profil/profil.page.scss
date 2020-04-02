@@ -1,0 +1,52 @@
+.name{
+    color: black;
+    text-align: center;
+    margin-top: 4%;
+}
+
+.information{
+    color: black;
+    display: flex;
+    justify-content: space-between;
+    padding: 5%;
+    margin-top: 10%;
+}
+
+.img{
+    height: 130px;
+    width: 130px;
+    border-radius: 50%;
+    margin-left: 30%;
+    overflow: hidden;
+    margin-top: -12%;
+}
+
+.loisir{
+    color: black;
+    padding-top: 3%;
+}
+
+.rayon{
+    color: black;
+    padding-top: 3%;
+}
+
+.foyer{
+    color: black;
+    padding-top: 3%;
+}
+
+.hobbies{
+    color: black;
+    display: flex;
+    padding-left: 6%;
+}
+
+.btn{
+    padding-right: 5%;
+}
+
+.famille{
+    padding-left: 6%;
+    color: black;
+}

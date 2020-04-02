@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-toolbar color="dark">
+    <ion-buttons slot="start">
+      <ion-back-button color="warning"></ion-back-button>
+    </ion-buttons>
+    <ion-title color="warning" style="text-transform: capitalize;">Détail coupon</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card lines="none" no-margin>
+    <ion-card-content>
+      <ion-item>
+        <ion-label color="dark" style="font-size: 25px; font-style: bold ;">{{description}}</ion-label>
+        <ion-chip>{{dateDebut}}</ion-chip>
+      </ion-item>
+      <ion-chip color="warning">
+        <ion-icon name="time-outline"></ion-icon>
+        <ion-label color="dark">{{start}} - {{end}} </ion-label>
+      </ion-chip>
+      <ion-chip color="warning">
+        <ion-icon name="cart-outline" ></ion-icon>
+        <ion-label color="dark"> - {{reduction}} {{devise}}</ion-label>
+      </ion-chip>
+      <ion-chip color="warning">
+        <ion-icon name="flower-outline"></ion-icon>
+        <ion-label color="dark">Code de reduction : {{code_value}}</ion-label>
+      </ion-chip>
+      <ion-item>
+        <ion-label color="dark">Nombre utilisations</ion-label>
+        <ion-badge slot="end">{{nbreUtilisation}}</ion-badge>
+      </ion-item>
+    </ion-card-content>
+
+  </ion-card>
+</ion-content>

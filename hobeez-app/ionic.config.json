@@ -1,5 +1,7 @@
 {
-  "name": "hobeez-app",
-  "integrations": {},
+  "name": "myApp",
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }
