@@ -11,26 +11,21 @@ import { ToastController } from '@ionic/angular';
 export class ProfilPage{
   activitiesSave = ""
   selectedType = []
+  getSelectedSubject = []
+  lastPosition
+  position
   activities = ["Sport", "Restauration", "Art", "Magasin", "Cinema", "Park", "Casino", "Boite", "Bar", "Monument_religieux", "Beaute", "Animaux", "Librairie", "Nature"];
   constructor(public toastController: ToastController) { 
-    // this.platform.ready().then(()=>{
-    //   this.categorie =[""]
-    // })
   }
   async openToast() {
     const toast = await this.toastController.create({
-      message: 'Changement sauvegarder ',
+      message: 'Changement sauvegardé ',
       duration: 2000
     });
     toast.present();
     this.remplissageStockage();
   }
 
-  private toppings;
-
-  // read(){
-  //   console.log(this.activities);
-  // }
 
   getSelectedSubjectValue(getSelectedSubject){
 
@@ -38,25 +33,22 @@ export class ProfilPage{
     this.selectedType = getSelectedSubject
 
   }
-  // onSelectChange(evt: CustomEvent<SelectChangeEventDetail>): void {
-  //   this.all = evt.detail.value;
-  //   if(this.all === this.activities){
-  //     this.allSelected = true;
-  //   }
-  //   else{
-  //     this.allSelected = true;
-  //   }
-  // }
+
 
   ngOnInit() {
+    this.getSelectedSubject = JSON.parse(localStorage.getItem('activitiesSave'))
+    this.position = parseInt(localStorage.getItem("position"))
+    
   }
 
-  // } 
   remplissageStockage() {
-    console.log('111111111')
     console.log(this.selectedType)
     this.activitiesSave = JSON.stringify(this.selectedType)
     localStorage.setItem('activitiesSave', this.activitiesSave);
+
+    this.activitiesSave = JSON.stringify(this.position)
+    console.log(this.position)
+    localStorage.setItem('position', this.position);
   }
 
 }

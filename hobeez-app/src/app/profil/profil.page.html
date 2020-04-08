@@ -32,22 +32,24 @@
         <ion-label>Centre d'interet :</ion-label>
         <ion-select [value]="['tout']" multiple="true" [(ngModel)]="getSelectedSubject"  (ionChange)="getSelectedSubjectValue(getSelectedSubject)" 
           cancelText="Retour" okText="Valider" style="color:black;">
-          <!-- <ion-select-option value="tout" check="True">Tout</ion-select-option> -->
-          <ion-select-option value="sport">Sport</ion-select-option>
+          <ion-select-option value="tout" check="True">Tout</ion-select-option>
+          <!-- <div *ngIf="tab_selec.includes('cinema')"><ion-select-option  value="sport" checked="true">BiteTrue</ion-select-option></div>
+          <div *ngIf="!tab_selec.includes('cinema')"><ion-select-option value="sport" checked="false">BiteFalse</ion-select-option></div> -->
+          
           <ion-select-option value="cinema">Cinema</ion-select-option>
           <ion-select-option value="casino">Casino</ion-select-option>
           <ion-select-option value="boite">Boite</ion-select-option>
           <ion-select-option value="bar">Bar</ion-select-option>
           <ion-select-option value="beaute">Beaute</ion-select-option>
           <ion-select-option value="librairie">Librairie</ion-select-option>
-          <ion-select-option value="magazin">Magasin</ion-select-option>
+          <ion-select-option value="magasin">Magasin</ion-select-option>
           <ion-select-option value="art">Art</ion-select-option>
           <ion-select-option value="restauration">Restauration</ion-select-option>
           <ion-select-option value="monument_religieux">Monument_religieux</ion-select-option>
           <ion-select-option value="park">Park</ion-select-option>
           <ion-select-option value="animaux">Animaux</ion-select-option>
           <ion-select-option value="nature">Nature</ion-select-option>
-          <ion-select-option (ionSelect)="read()">select/deselect all</ion-select-option>
+          <!-- <ion-select-option (ionSelect)="read()">select/deselect all</ion-select-option> -->
         
         </ion-select>
       </ion-item>
