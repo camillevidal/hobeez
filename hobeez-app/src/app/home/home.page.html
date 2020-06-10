@@ -1,33 +1,23 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>home</ion-title>
-    <ion-buttons slot="secondary">
-      <ion-button fill="outline">
-        <ion-icon slot="start" name="contact"></ion-icon>
-        Profil
-      </ion-button>
-    </ion-buttons>
-    
-  </ion-toolbar>
+
+	<ion-toolbar color="primary">
+		<ion-title>
+			Swipes
+		</ion-title>
+	</ion-toolbar>
+
 </ion-header>
 
-<ion-content>
+<ion-content padding>
+
+  <slide-loisirs [cards]="cards" (choiceMade)="logChoice($event)"></slide-loisirs>
 
 </ion-content>
+
 <ion-footer>
+
   <ion-toolbar>
-    <ion-buttons slot="secondary">
-      <ion-button>
-        <ion-icon slot="icon-only" name="finger-print"></ion-icon>
-      </ion-button>
-    </ion-buttons>
-
-    <ion-title>Footer</ion-title>
-
-    <ion-buttons slot="primary">
-      <ion-button>
-        <ion-icon slot="icon-only" name="more"></ion-icon>
-      </ion-button>
-    </ion-buttons>
+    <ion-button expand="full" (click)="loadTinderCards()">Affiche les loisirs!</ion-button>
   </ion-toolbar>
+
 </ion-footer>

@@ -1,20 +1,18 @@
-import { IonicModule } from '@ionic/angular';
-import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
-import { Tab1Page } from './login.page';
-import { ReactiveFormsModule } from '@angular/forms';
-
+import { FormsModule,ReactiveFormsModule } from '@angular/forms';
+import { IonicModule } from '@ionic/angular';
+import { LoginPageRoutingModule } from './login-routing.module';
+import { LoginPage } from './login.page';
 
 @NgModule({
   imports: [
-    IonicModule,
     CommonModule,
     FormsModule,
-    ReactiveFormsModule ,
-    RouterModule.forChild([{ path: '', component: Tab1Page }])
+    IonicModule,
+    LoginPageRoutingModule,
+    ReactiveFormsModule
   ],
-  declarations: [Tab1Page]
+  declarations: [LoginPage]
 })
 export class LoginPageModule {}
