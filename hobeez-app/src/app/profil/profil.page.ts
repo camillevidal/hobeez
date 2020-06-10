@@ -28,26 +28,33 @@ export class ProfilPage{
 
 
   getSelectedSubjectValue(getSelectedSubject){
-
+    // recupère les catégories d'activitées selectionner
     console.log(getSelectedSubject)
     this.selectedType = getSelectedSubject
+    console.log(this.selectedType)
+    this.activitiesSave = JSON.stringify(this.selectedType)
+    localStorage.setItem('activitiesSave', this.activitiesSave);
 
+  }
+
+  allClickedCategories() {
+    this.getSelectedSubject = ["Sport", "Restauration", "Art", "Magasin", "Cinema", "Park", "Casino", "Boite", "Bar", "Monument_religieux", "Beaute", "Animaux", "Librairie", "Nature"];
   }
 
 
   ngOnInit() {
+    // initialise les données avec les données suavegarder dans le locale storage
     this.getSelectedSubject = JSON.parse(localStorage.getItem('activitiesSave'))
     this.position = parseInt(localStorage.getItem("position"))
     
   }
 
   remplissageStockage() {
-    console.log(this.selectedType)
+    // remplissage du locale storage
     this.activitiesSave = JSON.stringify(this.selectedType)
     localStorage.setItem('activitiesSave', this.activitiesSave);
 
     this.activitiesSave = JSON.stringify(this.position)
-    console.log(this.position)
     localStorage.setItem('position', this.position);
   }
 

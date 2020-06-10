@@ -70,6 +70,7 @@ export class LoginPage implements OnInit {
 
       else if (this.user.password == hash.toString()) {
         localStorage.setItem("login", email)
+        localStorage.setItem("mdp", password)
         this.navCtrl.navigateForward('/tabs/tab2');
         let hide = document.getElementById("logged")
         hide.style.visibility = "visible"

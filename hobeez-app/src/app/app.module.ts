@@ -11,6 +11,7 @@ import {HttpClientModule} from '@angular/common/http'
 import { QRScanner} from '@ionic-native/qr-scanner/ngx';
 import { ScreenOrientation } from '@ionic-native/screen-orientation/ngx';
 
+
 //import {Dialogs} from '@ionic-native/dialogs/ngx';
 //import { HTTP } from '@ionic-native/http';
 
