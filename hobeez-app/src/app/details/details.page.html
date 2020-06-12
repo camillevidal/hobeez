@@ -4,17 +4,21 @@
 </ion-header>
 
 <ion-content>
-  <ion-card>
+  <div *ngIf="!loaded">
+    <div class="loading">Loading&#8230;</div>
+    </div>
+
+  <ion-card *ngIf="loaded">
     <img src="https://img.mobiscroll.com/demos/card_6.png">
     <ion-card-header>
       <!-- <bar-rating [max]="5" [rate]="4" [readOnly]="true" [theme]="'stars'" ></bar-rating> -->
       <div>
-        <div class="star-ratings-sprite"><span id="ratingSpan" style="width:52%"
+        <div class="star-ratings-sprite"><span id="ratingSpan" [ngStyle]="{'width': ratingStars}"
             class="star-ratings-sprite-rating"></span></div>
         <ion-card-subtitle style="text-align: center; margin-top: 2%;"> Avis Google</ion-card-subtitle>
       </div>
       <ion-card-title style="color:black; font-weight: bold;">
-        <img id="image" src="{{information['result']['icon']}}"> {{information["result"]["name"]}}  <!-- <ion-icon name="restaurant-outline"></ion-icon>-->
+        <img id="image" src="{{information['result']['icon']}}"> {{reponse.result.name}}  <!--  information["result"]["name"]     <ion-icon name="restaurant-outline"></ion-icon>-->
       </ion-card-title>
     </ion-card-header>
 
@@ -24,15 +28,15 @@
 
 
       <div>
-        <ion-icon name="location-outline"></ion-icon> {{information["result"]["formatted_address"]}}
+        <ion-icon name="location-outline"></ion-icon> {{reponse.result.formatted_address}} <!--["result"]["formatted_address"] -->
       </div>
       <div>
         <ion-icon name="globe-outline"></ion-icon>
-        {{information["result"]["website"]}}
+        {{reponse.result.website}} <!--information["result"]["website"] -->
       </div>
       <div>
         <ion-icon name="call-outline"></ion-icon>
-        {{information["result"]["formatted_phone_number"]}}
+        {{reponse.result.formatted_phone_number}} <!--information["result"]["formatted_phone_number"] -->
       </div>
 
       <ion-card class="transparent-card">

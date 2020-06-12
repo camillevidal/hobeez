@@ -27,15 +27,19 @@ export class DetailsService {
     "password":mdp}, optionRequetePost)
   }
 
-  getDetails(token:string, placeId: string): Observable<FindPlaceFromTextResponse>{
+  getDetails(token:string, placeId: string): Observable<string>{
     const optionDetails = {
       responseType: 'text' as 'json',
       headers: new HttpHeaders({
         'Authorization': 'Bearer ' + token
       })
     };
-    return this.http.post<FindPlaceFromTextResponse>(`http://88.122.44.186:9997/api/hobeez/google/details?place_id=`+ placeId, optionDetails)
+    return this.http.get<string>(`http://109.11.21.53:9997/api/hobeez/google/details?place_id=`+ placeId, optionDetails)
 
+  }
+
+  getImage(apiKey:string, photoreference:string, maxwidth:number){
+    return this.http.get<User>(`https://maps.googleapis.com/maps/api/place/photo?key=${apiKey}&photoreference=${photoreference}&maxwidth=${maxwidth}`, optionRequete)
   }
 
   login(email): Observable<User> {
