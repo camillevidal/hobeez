@@ -9,7 +9,7 @@
     </div>
 
   <ion-card *ngIf="loaded">
-    <img src="https://img.mobiscroll.com/demos/card_6.png">
+    <img src="{{urlphoto}}">
     <ion-card-header>
       <!-- <bar-rating [max]="5" [rate]="4" [readOnly]="true" [theme]="'stars'" ></bar-rating> -->
       <div>
@@ -17,8 +17,8 @@
             class="star-ratings-sprite-rating"></span></div>
         <ion-card-subtitle style="text-align: center; margin-top: 2%;"> Avis Google</ion-card-subtitle>
       </div>
-      <ion-card-title style="color:black; font-weight: bold;">
-        <img id="image" src="{{information['result']['icon']}}"> {{reponse.result.name}}  <!--  information["result"]["name"]     <ion-icon name="restaurant-outline"></ion-icon>-->
+      <ion-card-title style="color:white; font-weight: bold;">
+        <img id="image" src="{{reponse['result']['icon']}}"> {{reponse.result.name}}  <!--  information["result"]["name"]     <ion-icon name="restaurant-outline"></ion-icon>-->
       </ion-card-title>
     </ion-card-header>
 
@@ -47,9 +47,9 @@
 
   </ion-card>
 
-    <ion-button (click)="placeMarker()">
+    <!-- <ion-button (click)="placeMarker()">
       <ion-icon slot="icon-only" name="add-circle-outline"></ion-icon>
-    </ion-button>
+    </ion-button> -->
 
   <!-- <div id="map_canvas"></div> -->
   

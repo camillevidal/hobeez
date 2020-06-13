@@ -11,14 +11,14 @@
 
 <ion-content padding>
 
-  <slide-loisirs [cards]="cards" (choiceMade)="logChoice($event)"></slide-loisirs>
+  <slide-loisirs [cards]="cards" ></slide-loisirs>
 
 </ion-content>
 
 <ion-footer>
 
   <ion-toolbar>
-    <ion-button expand="full" (click)="loadTinderCards()">Affiche les loisirs!</ion-button>
+    <ion-button expand="full" (click)="getAllactivite()">Affiche les loisirs!</ion-button>
   </ion-toolbar>
 
 </ion-footer>

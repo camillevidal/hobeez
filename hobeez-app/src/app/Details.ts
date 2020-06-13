@@ -49,12 +49,12 @@ export interface opening_hours
     weekday_text:Array<string>
 }
 
-export interface Photos
+export interface photos
 {
-    height:Number
-    html_attributions:Array<String>
-    photo_reference:String
-    width:Number
+    height:number
+    html_attributions:Array<string>
+    photo_reference:string
+    width:number
 }
 
 export interface FindPlaceFromTextResponse{

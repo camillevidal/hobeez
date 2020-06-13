@@ -22,7 +22,7 @@
   <!-- rajout gestures -->
   <div class="tinder--cards" (pan)="handlePan($event)" (panend)="handlePanEnd($event)">
 
-      <div #tinderCard class="tinder--card" (transitionend)="handleShift()" *ngFor="let card of cards; let i = index"
+      <div #tinderCard class="tinder--card" (transitionend)="handleShift()" *ngFor="let card of cards; let i = index" (click)="details(i)"
           [ngStyle]="{ zIndex: cards.length - i, transform: 'scale(' + (20 - i) / 20 + ') translateY(-' + 20 * i + 'px)' }">
 
           <img #tinderCardImage [src]="card.img" (load)="tinderCardImage.style.opacity = 1">
