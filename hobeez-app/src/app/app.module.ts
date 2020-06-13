@@ -8,12 +8,9 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {HttpClientModule} from '@angular/common/http'
-import { QRScanner} from '@ionic-native/qr-scanner/ngx';
-import { ScreenOrientation } from '@ionic-native/screen-orientation/ngx';
 
+import { MenuController } from '@ionic/angular';
 
-//import {Dialogs} from '@ionic-native/dialogs/ngx';
-//import { HTTP } from '@ionic-native/http';
 
 @NgModule({
   declarations: [AppComponent],
@@ -22,7 +19,6 @@ import { ScreenOrientation } from '@ionic-native/screen-orientation/ngx';
   providers: [
     StatusBar,
     SplashScreen,
-    QRScanner,
     ScreenOrientation,
    // Dialogs,
     //HTTP,
@@ -31,4 +27,20 @@ import { ScreenOrientation } from '@ionic-native/screen-orientation/ngx';
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule {
+  constructor(private menu: MenuController) { }
+  openFirst() {
+    this.menu.enable(true, 'first');
+    this.menu.open('first');
+  }
+
+  openEnd() {
+    this.menu.open('end');
+  }
+
+  openCustom() {
+    this.menu.enable(true, 'custom');
+    this.menu.open('custom');
+  }
+
+}

@@ -16,12 +16,17 @@ import {
   Marker,
   Environment
 } from '@ionic-native/google-maps';
+<<<<<<< HEAD
 import { DetailsService } from './../details.service'
 import { HttpClient } from '@angular/common/http';
 import { FindPlaceFromTextResponse } from './../Details';
 import { Observable, throwError } from 'rxjs';
 import { of } from 'rxjs';
 
+=======
+import { DetailServiceService } from '../detail-service.service'
+import { HttpClient } from '@angular/common/http';
+>>>>>>> cam_dev
 
 declare var Google: any;
 
@@ -34,6 +39,7 @@ export class DetailsPage implements OnInit {
   markers = [];
   // geocoder = new Google.maps.Geocoder;
 
+<<<<<<< HEAD
   ratingStars:string = "0%";
   loaded:boolean = false;
   map: GoogleMap;
@@ -42,6 +48,14 @@ export class DetailsPage implements OnInit {
   information = { "html_attributions": [], "result": { "address_components": [{ "long_name": "52", "short_name": "52", "types": ["street_number"] }, { "long_name": "Allée du Levant", "short_name": "Allée du Levant", "types": ["route"] }, { "long_name": "La Grande-Motte", "short_name": "La Grande-Motte", "types": ["locality", "political"] }, { "long_name": "Hérault", "short_name": "Hérault", "types": ["administrative_area_level_2", "political"] }, { "long_name": "Occitanie", "short_name": "Occitanie", "types": ["administrative_area_level_1", "political"] }, { "long_name": "France", "short_name": "FR", "types": ["country", "political"] }, { "long_name": "34280", "short_name": "34280", "types": ["postal_code"] }], "adr_address": "\u003cspan class=\"street-address\"\u003e52 Allée du Levant\u003c/span\u003e, \u003cspan class=\"postal-code\"\u003e34280\u003c/span\u003e \u003cspan class=\"locality\"\u003eLa Grande-Motte\u003c/span\u003e, \u003cspan class=\"country-name\"\u003eFrance\u003c/span\u003e", "formatted_address": "52 Allée du Levant, 34280 La Grande-Motte, France", "formatted_phone_number": "04 67 29 93 00", "geometry": { "location": { "lat": 43.5552826, "lng": 4.099411 }, "viewport": { "northeast": { "lat": 43.55671643029149, "lng": 4.100698080291503 }, "southwest": { "lat": 43.5540184697085, "lng": 4.098000119708498 } } }, "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/lodging-71.png", "name": "La Plage Art & Émotions", "opening_hours": { "open_now": true, "periods": [{ "open": { "day": 0, "time": "0000" } }], "weekday_text": ["Monday: Open 24 hours", "Tuesday: Open 24 hours", "Wednesday: Open 24 hours", "Thursday: Open 24 hours", "Friday: Open 24 hours", "Saturday: Open 24 hours", "Sunday: Open 24 hours"] }, "plus_code": { "compound_code": "H34X+4Q La Grande-Motte, France", "global_code": "8FM6H34X+4Q" }, "rating": 4.3, "types": ["lodging", "bar", "restaurant", "food", "health", "point_of_interest", "establishment"], "website": "http://www.laplage-artetemotions.com/" }, "status": "OK" }
 
   constructor(public alertController: AlertController, public actionCtrl: ActionSheetController, private ds: DetailsService, private platform: Platform) {
+=======
+  map: GoogleMap;
+  detailsService: DetailServiceService;
+  // base 64 decode
+  information = { "html_attributions": [], "result": { "address_components": [{ "long_name": "52", "short_name": "52", "types": ["street_number"] }, { "long_name": "Allée du Levant", "short_name": "Allée du Levant", "types": ["route"] }, { "long_name": "La Grande-Motte", "short_name": "La Grande-Motte", "types": ["locality", "political"] }, { "long_name": "Hérault", "short_name": "Hérault", "types": ["administrative_area_level_2", "political"] }, { "long_name": "Occitanie", "short_name": "Occitanie", "types": ["administrative_area_level_1", "political"] }, { "long_name": "France", "short_name": "FR", "types": ["country", "political"] }, { "long_name": "34280", "short_name": "34280", "types": ["postal_code"] }], "adr_address": "\u003cspan class=\"street-address\"\u003e52 Allée du Levant\u003c/span\u003e, \u003cspan class=\"postal-code\"\u003e34280\u003c/span\u003e \u003cspan class=\"locality\"\u003eLa Grande-Motte\u003c/span\u003e, \u003cspan class=\"country-name\"\u003eFrance\u003c/span\u003e", "formatted_address": "52 Allée du Levant, 34280 La Grande-Motte, France", "formatted_phone_number": "04 67 29 93 00", "geometry": { "location": { "lat": 43.5552826, "lng": 4.099411 }, "viewport": { "northeast": { "lat": 43.55671643029149, "lng": 4.100698080291503 }, "southwest": { "lat": 43.5540184697085, "lng": 4.098000119708498 } } }, "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/lodging-71.png", "name": "La Plage Art & Émotions", "opening_hours": { "open_now": true, "periods": [{ "open": { "day": 0, "time": "0000" } }], "weekday_text": ["Monday: Open 24 hours", "Tuesday: Open 24 hours", "Wednesday: Open 24 hours", "Thursday: Open 24 hours", "Friday: Open 24 hours", "Saturday: Open 24 hours", "Sunday: Open 24 hours"] }, "plus_code": { "compound_code": "H34X+4Q La Grande-Motte, France", "global_code": "8FM6H34X+4Q" }, "rating": 4.3, "types": ["lodging", "bar", "restaurant", "food", "health", "point_of_interest", "establishment"], "website": "http://www.laplage-artetemotions.com/" }, "status": "OK" }
+
+  constructor(public alertController: AlertController, public actionCtrl: ActionSheetController, private ds: DetailServiceService, private platform: Platform) {
+>>>>>>> cam_dev
     this.loadMap();
     this.detailsService = ds
     
@@ -57,16 +71,14 @@ export class DetailsPage implements OnInit {
     this.map = GoogleMaps.create('map_canvas', {
       camera: {
         target: {
-          // lat: this.reponse.result.geometry.location.lat,  // 43.610769, /////////////////
-          // lng: this.reponse.result.geometry.location.lng //3.876716 //////////////////
-          lat: this.information.result.geometry.location.lat,  // 43.610769, /////////////////
-          lng: this.information.result.geometry.location.lng  // 3.876716 //////////////////
+          lat: this.information.result.geometry.location.lat,  // 43.610769, 
+          lng: this.information.result.geometry.location.lng  // 3.876716 
         },
         zoom: 17,
         tilt: 30
       }
     });
-    // console.log('location : ' + this.information.result.geometry.location)
+
     
   }
 
@@ -163,41 +175,14 @@ export class DetailsPage implements OnInit {
   placeMarker() {
     console.log("marqueur placer ")
     const marker: Marker = this.map.addMarkerSync({
-      title: this.reponse.result.name, //"Restaurant",
-      // title: this.information.result.name, //"Restaurant",
+      title: this.information.result.name, //"Restaurant",
       icon: 'red',
       animation: 'DROP',
       position: this.map.getCameraPosition().target
     });
   }
 
-  // selectSearchResult(item){
-  //   this.clearMarkers();
-  //   let autocompleteItems = [];
 
-  //   this.geocoder.geocode({'placeId': item.place_id}, (result, status) => {
-  //     // if(status === 'OK' && results[0]){
-  //       // let position = {
-  //       //     lat: results[0].geometry.location.lat,
-  //       //     lng: results[0].geometry.location.lng
-  //       // };
-  //       let marker = new Google.maps.Marker({
-  //         position: this.information[0].geometry.location,
-  //         map: this.map
-  //       });
-  //       this.markers.push(marker);
-  //       // this.map.setCenter(results[0].geometry.location);
-  //     }
-  //   )
-  // }
-
-  // clearMarkers() {
-  //   for (var i = 0; i < this.markers.length; i++) {
-  //     console.log(this.markers[i])
-  //     this.markers[i].setMap(null);
-  //   }
-  //   this.markers = [];
-  // }
 
 
 

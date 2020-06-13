@@ -18,34 +18,14 @@ const routes: Routes = [
         ]
       },
       {
-        path: 'tab2',
+        path: 'home',
         children: [
           {
             path: '',
             loadChildren: () =>
-              import('../tab2/tab2.module').then(m => m.Tab2PageModule)
+              import('../home/home.module').then(m => m.HomePageModule)
           }
         ]
-      },
-      {
-        path: 'tab3',
-        children: [
-          {
-            path: '',
-            loadChildren: () =>
-              import('../details/details.module').then(m => m.DetailsPageModule)
-          },
-          {
-            path: 'coupon/:couponId',
-            loadChildren: () => import('../coupon/coupon.module').then(m => m.CouponPageModule)
-          }
-
-        ]
-      },
-      
-      {
-        path: 'coupon',
-        loadChildren: () => import('../coupon/coupon.module').then(m => m.CouponPageModule)
       },
       {
         path: 'login',
@@ -55,21 +35,17 @@ const routes: Routes = [
         path: 'register',
         loadChildren: () => import('../register/register.module').then(m => m.RegisterPageModule)
       },
-      {
-        path: 'profil',
-        loadChildren: () => import('../profil/profil.module').then(m => m.ProfilPageModule)
-      },
 
       {
         path: '',
-        redirectTo: '/tabs/profil',
+        redirectTo: '/tabs/login',
         pathMatch: 'full'
       }
     ]
   },
   {
     path: '',
-    redirectTo: '/tabs/profil',
+    redirectTo: '/tabs/login',
     pathMatch: 'full'
   }
 ];

@@ -41,11 +41,11 @@
           </div>
 
           <ion-button id="btn-connect" class="submit-btn" type="submit" [disabled]="!validations_form.valid"
-            (click)="loginUser()" style="margin-top: 6%;">Se connecter</ion-button>
+             style="margin-top: 6%;" (click)="loginUser()">Se connecter</ion-button>
           <label class="error-message">{{errorMessage}}</label>
         </form>
         <p class="go-to-register">
-          <a (click)="goToRegisterPage()" style="cursor: pointer;">Pas encore inscrit?</a>
+          <a style="cursor: pointer;">Pas encore inscrit?</a>
         </p>
       </ion-col>
     </ion-row>

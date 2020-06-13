@@ -1,0 +1,23 @@
+<ion-header>
+
+	<ion-toolbar color="primary">
+		<ion-title>
+			Swipes
+		</ion-title>
+	</ion-toolbar>
+
+</ion-header>
+
+<ion-content padding>
+
+  <slide-loisirs [cards]="cards" (choiceMade)="logChoice($event)"></slide-loisirs>
+
+</ion-content>
+
+<ion-footer>
+
+  <ion-toolbar>
+    <ion-button expand="full" (click)="loadTinderCards()">Affiche les loisirs!</ion-button>
+  </ion-toolbar>
+
+</ion-footer>

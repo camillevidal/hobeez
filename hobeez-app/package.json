@@ -49,6 +49,7 @@
     "ngx-bootstrap": "^5.5.0",
     "qr-scanner": "^1.1.1",
     "rxjs": "~6.5.1",
+    "sha256": "^0.2.0",
     "tslib": "^1.9.0",
     "zone.js": "~0.9.1"
   },
@@ -62,6 +63,7 @@
     "@types/jasmine": "~3.3.8",
     "@types/jasminewd2": "~2.0.3",
     "@types/node": "~8.9.4",
+    "angular-swipe": "^0.4.0",
     "codelyzer": "^5.0.0",
     "cordova-plugin-device": "^2.0.2",
     "cordova-plugin-ionic-keyboard": "^2.2.0",
