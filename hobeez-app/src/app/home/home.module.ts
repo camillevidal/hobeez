@@ -15,4 +15,4 @@ import { SlideLoisirsPage } from '../slide-loisirs/slide-loisirs.page';
   ],
   declarations: [HomePage,SlideLoisirsPage]
 })
-export class CouponPageModule {}
+export class HomePageModule {}

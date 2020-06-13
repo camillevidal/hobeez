@@ -86,9 +86,9 @@ export class UserService {
 const x = btoa("DR567Kle_i:2Kjl9-(kl")
 const optionRequetePost = {
   responseType: 'text' as 'json',
-  headers: new HttpHeaders({
-    'Authorization': 'Basic ' + x
-  })
+  // headers: new HttpHeaders({
+  //   'Authorization': 'Basic ' + x
+  // })
 };
 const optionRequete = {
   headers: new HttpHeaders({

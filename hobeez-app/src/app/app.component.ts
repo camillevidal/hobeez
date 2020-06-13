@@ -15,7 +15,6 @@ export class AppComponent {
         private platform: Platform,
         private splashScreen: SplashScreen,
         private statusBar: StatusBar,
-        private screenOrientation: ScreenOrientation
 
 
     ) {

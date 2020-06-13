@@ -13,8 +13,8 @@
         <form class="form" [formGroup]="validations_form">
 
           <ion-item>
-            <ion-label position="floating" color="dark">E-mail</ion-label>
-            <ion-input id="inputLogin" color="dark" type="text" formControlName="email"></ion-input>
+            <ion-label position="floating" color="success">E-mail</ion-label>
+            <ion-input id="inputLogin" color="success" type="text" formControlName="email"></ion-input>
           </ion-item>
           <div class="validation-errors">
             <ng-container *ngFor="let validation of validation_messages.email">
@@ -26,8 +26,8 @@
           </div>
 
           <ion-item>
-            <ion-label position="floating" color="dark">Mot de passe</ion-label>
-            <ion-input color="dark" type="password" formControlName="password" class="form-controll" required>
+            <ion-label position="floating" color="success">Mot de passe</ion-label>
+            <ion-input color="success" type="password" formControlName="password" class="form-controll" required>
             </ion-input>
           </ion-item>
           <div class="validation-errors">

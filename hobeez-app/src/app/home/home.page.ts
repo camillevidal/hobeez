@@ -45,8 +45,3 @@ export class HomePage  {
   };
 
 }
-
-
-  
-
-

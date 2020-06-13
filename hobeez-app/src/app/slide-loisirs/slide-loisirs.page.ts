@@ -1,5 +1,5 @@
 import { Component, Input, ViewChildren, QueryList, ElementRef,Renderer2, Output, EventEmitter } from '@angular/core';
-
+import {HomePage} from '../home/home.page'
 @Component({
   selector: 'slide-loisirs',
   templateUrl: './slide-loisirs.page.html',
