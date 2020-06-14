@@ -36,6 +36,7 @@ export class SlideLoisirsPage{
     if (heart) {
       this.tinderCardsArray[0].nativeElement.style.transform = 'translate(' + this.moveOutWidth + 'px, -100px) rotate(-30deg)';
       this.toggleChoiceIndicator(false,true);
+
     } else {
       this.tinderCardsArray[0].nativeElement.style.transform = 'translate(-' + this.moveOutWidth + 'px, -100px) rotate(30deg)';
       this.toggleChoiceIndicator(true,false);
@@ -108,7 +109,6 @@ handlePanEnd(event) {
     this.shiftRequired = false;
 
   } else {
-
     let endX = Math.max(Math.abs(event.velocityX) * this.moveOutWidth, this.moveOutWidth);
     let toX = event.deltaX > 0 ? endX : -endX;
     let endY = Math.abs(event.velocityY) * this.moveOutWidth;
@@ -129,6 +129,23 @@ handlePanEnd(event) {
 
 
 emitChoice(heart, card) {
+  //heart = true si l'utilisateur like la carte, sinon false
+  if(heart){
+    if(!localStorage.getItem("likes") || !localStorage.getItem("likes") == null){
+      localStorage.setItem("likes", JSON.stringify([]))
+    }
+    let cards_like = JSON.parse(localStorage.getItem("likes"))
+    cards_like.push(card)
+    localStorage.setItem("likes", JSON.stringify(cards_like))
+  }
+  else{
+    if(!localStorage.getItem("dislikes") || !localStorage.getItem("dislikes") == null){
+      localStorage.setItem("dislikes", JSON.stringify([]))
+    }
+    let cards_like = JSON.parse(localStorage.getItem("dislikes"))
+    cards_like.push(card)
+    localStorage.setItem("dislikes", JSON.stringify(cards_like))
+  }
   this.choiceMade.emit({
     choice: heart,
     payload: card

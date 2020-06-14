@@ -1,0 +1,43 @@
+<ion-header>
+  <ion-toolbar>
+    <h1 id="titlePage">LIKES</h1>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div *ngIf="cards.length == 0" class="center"><a id="noLikes">Vous n'avez pas encore like d'activité.</a></div>
+  <div *ngIf="cards.length > 0">
+    <div *ngFor="let card of cards; let i = index" >
+      <div class="allCard">
+        <div class="cardsTitle" >    
+          <div>
+            <h5>{{ card.title }}</h5>
+            <div class="iconCards">
+              <div><ion-icon name="arrow-forward-circle-outline" (click)="showDetails(i)"></ion-icon></div>
+              
+              <div>
+                <div><ion-icon name="trash-outline"></ion-icon></div>
+              </div>
+              
+            </div>
+            
+          </div>  
+          <div class="cardsContent">
+            <h6>{{ card.description }}/5 </h6>
+  
+          </div>
+          
+        </div>
+        <div class="cardsDelete">
+          <ion-icon name="trash-outline"></ion-icon>
+        </div>
+        
+      </div>
+      
+    </div>
+  </div>
+
+  
+
+
+</ion-content>
