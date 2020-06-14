@@ -1,5 +1,13 @@
-<ion-header>
-  <ion-toolbar>
+<ion-header [translucent]="true">
+  <ion-toolbar color="dark" style="width: 100%; position: relative;">
+    <ion-title color="warning" id="liste-coupons">
+      Details
+      <div style="display: inline-flex;width: 100%;position: absolute;left: 80%;bottom: 1%;">
+        <ion-button style="cursor:pointer" (click)="goHome()">
+          <ion-icon name="close-circle-outline"></ion-icon>
+        </ion-button>
+      </div>
+    </ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -15,15 +23,19 @@
       <div>
         <div class="star-ratings-sprite"><span id="ratingSpan" [ngStyle]="{'width': ratingStars}"
             class="star-ratings-sprite-rating"></span></div>
-        <ion-card-subtitle style="text-align: center; margin-top: 2%;"> Avis Google</ion-card-subtitle>
+        <ion-card-subtitle style="text-align: center; margin-top: 2%; color:#bf9056"> Avis Google</ion-card-subtitle>
       </div>
+<<<<<<< HEAD
       <ion-card-title style="color:white; font-weight: bold;">
+=======
+      <ion-card-title style="color:#bf9056; font-weight: bold;">
+>>>>>>> dev_lucas
         <img id="image" src="{{reponse['result']['icon']}}"> {{reponse.result.name}}  <!--  information["result"]["name"]     <ion-icon name="restaurant-outline"></ion-icon>-->
       </ion-card-title>
     </ion-card-header>
 
 
-    <ion-card-content style="color:#4d4d4d;">
+    <ion-card-content style="color:#bf9056;">
 
 
 

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Platform } from '@ionic/angular';
-
+import { NavController } from '@ionic/angular';
 import { ToastController } from '@ionic/angular';
 
 @Component({
@@ -9,14 +9,24 @@ import { ToastController } from '@ionic/angular';
   styleUrls: ['./profil.page.scss'],
 })
 export class ProfilPage{
+  open:boolean;
   activitiesSave = ""
   selectedType = []
   getSelectedSubject = []
   lastPosition
   position
-  activities = ["Sport", "Restauration", "Art", "Magasin", "Cinema", "Park", "Casino", "Boite", "Bar", "Monument_religieux", "Beaute", "Animaux", "Librairie", "Nature"];
-  constructor(public toastController: ToastController) { 
+  activities = ["Aquarium", "Art", "Bar", "Beauté", "Boite", "Bowling", "Café", "Casino", "Cinéma", "Coiffeur", "Eglise", "Librairie", "Magasin", "Mosquée", "Musée", "Parc", "Parc de jeux", "Restauration", "Spa", "Shopping", "Sport", "Stade", "Synagogue", "Zoo"];
+  // activities = ["Sport", "Restauration", "Art", "Magasin", "Cinema", "Park", "Casino", "Boite", "Bar", "Monument_religieux", "Beaute", "Animaux", "Librairie", "Nature"];
+  constructor(public toastController: ToastController, private navCtrl: NavController) { 
+    if(!localStorage.getItem("open_now") || localStorage.getItem("open_now") == null){
+      this.open = true;
+      localStorage.setItem("open_now", JSON.stringify(this.open))
+    }
+    else{
+      this.open = JSON.parse(localStorage.getItem("open_now"))
+    }
   }
+
   async openToast() {
     const toast = await this.toastController.create({
       message: 'Changement sauvegardé ',
@@ -24,6 +34,13 @@ export class ProfilPage{
     });
     toast.present();
     this.remplissageStockage();
+    this.navCtrl.navigateForward('tabs/home');
+  }
+
+
+  // change value of open_now in local storage
+  public notify() {
+    localStorage.setItem("open_now", JSON.stringify(this.open))
   }
 
 
@@ -38,14 +55,14 @@ export class ProfilPage{
   }
 
   allClickedCategories() {
-    this.getSelectedSubject = ["Sport", "Restauration", "Art", "Magasin", "Cinema", "Park", "Casino", "Boite", "Bar", "Monument_religieux", "Beaute", "Animaux", "Librairie", "Nature"];
+    this.getSelectedSubject = this.activities;
   }
 
 
   ngOnInit() {
     // initialise les données avec les données suavegarder dans le locale storage
     this.getSelectedSubject = JSON.parse(localStorage.getItem('activitiesSave'))
-    this.position = parseInt(localStorage.getItem("position"))
+    this.position = parseInt(localStorage.getItem("perimetre"))
     
   }
 
@@ -55,7 +72,7 @@ export class ProfilPage{
     localStorage.setItem('activitiesSave', this.activitiesSave);
 
     this.activitiesSave = JSON.stringify(this.position)
-    localStorage.setItem('position', this.position);
+    localStorage.setItem('perimetre', this.position);
   }
 
 }

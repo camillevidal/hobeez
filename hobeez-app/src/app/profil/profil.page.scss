@@ -22,22 +22,21 @@
 }
 
 .loisir{
-    color: black;
-    padding-top: 3%;
+    padding-top: 8%;
 }
 
 .rayon{
-    color: black;
-    padding-top: 3%;
+    padding-top: 5%;
+    margin-left: 5%;
+    text-decoration: underline;
+    // text-decoration-color: #E18728;
 }
 
 .foyer{
-    color: black;
     padding-top: 3%;
 }
 
 .hobbies{
-    color: black;
     display: flex;
     padding-left: 6%;
 }
@@ -48,5 +47,22 @@
 
 .famille{
     padding-left: 6%;
-    color: black;
+}
+
+// .selectOption{
+//     color: #5CB85C;
+// }
+
+ion-alert div[class='alert-radio-label'] { background-color: red; }
+
+ion-toggle {
+    --background: #2A2A2A;
+    --background-checked: #3A3A3A;
+  
+    --handle-background: #3A3A3A;
+    --handle-background-checked: #000;
+  }
+
+.openbtn{
+    margin-left: 6%;
 }
