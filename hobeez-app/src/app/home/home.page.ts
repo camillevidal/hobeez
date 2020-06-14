@@ -69,31 +69,31 @@ export class HomePage  {
 
           if(act.business_status && photo_ref){
 
-            let card = {
-              img:"https://parismatch.be/app/uploads/2018/04/Macaca_nigra_self-portrait_large-e1524567086123-1100x715.jpg",
-              title:act.name,
-              description:act.rating,
-              place_id:act.place_id
-            }
-            this.cards.push(card)
-            // this.activiteService.getImage("AIzaSyAJGFKkkmz3kSekRLtX5TCVtV9mUYRuWgs", photo_ref, 260,180).subscribe(photoUrl => {
-            //   let card = {
-            //     img:JSON.parse(photoUrl).url,
-            //     title:act.name,
-            //     description:act.rating,
-            //     place_id:act.place_id
-            //   }
-            //   this.cards.push(card)
-            // },(error) => {
+            // let card = {
+            //   img:"https://parismatch.be/app/uploads/2018/04/Macaca_nigra_self-portrait_large-e1524567086123-1100x715.jpg",
+            //   title:act.name,
+            //   description:act.rating,
+            //   place_id:act.place_id
+            // }
+            // this.cards.push(card)
+            this.activiteService.getImage("AIzaSyAJGFKkkmz3kSekRLtX5TCVtV9mUYRuWgs", photo_ref, 260,180).subscribe(photoUrl => {
+              let card = {
+                img:JSON.parse(photoUrl).url,
+                title:act.name,
+                description:act.rating,
+                place_id:act.place_id
+              }
+              this.cards.push(card)
+            },(error) => {
 
-            //   let card = {
-            //     img:error.url,
-            //     title:act.name,
-            //     description:act.rating,
-            //     place_id:act.place_id
-            //   }
-            //   this.cards.push(card)
-            // })
+              let card = {
+                img:error.url,
+                title:act.name,
+                description:act.rating,
+                place_id:act.place_id
+              }
+              this.cards.push(card)
+            })
 
           }
           if(act == reponse.results[reponse.results.length -1]){

@@ -124,38 +124,24 @@ export class DetailsPage implements OnInit {
 
   getDetails(){
     let placeId = localStorage.getItem("place_id")
-    console.log("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
     let token = localStorage.getItem("jwt_token");
     this.detailsService.getDetails(token, placeId).subscribe(value => {
-      // let reponse = FindPlaceFromTextResponse();
-      console.log("aaaaaaaaaaaaaaaaaaaaaaaaaaaa")
-      // console.log(JSON.parse(value))
-      console.log(value)
       this.loaded = true;
       this.reponse = JSON.parse(value)
-      console.log("REPOSN?E EN CZERHJU EZ3RIHZ")
-      console.log(this.reponse)
       if(this.reponse.result.website == "" || !this.reponse.result.website){
         this.reponse.result.website = "Pas de site disponible"
       }
-
-      
       if(this.reponse.result.formatted_phone_number == "" || !this.reponse.result.formatted_phone_number){
         this.reponse.result.formatted_phone_number = "Pas de téléphone disponible"
       }
-
-      let rating = (this.reponse.result.rating * 100) / 5
-      let note = String(rating) + "%"
-      this.ratingStars = note
       this.loadMap();
-      
-
-
-
       });
-    
   }
 
+
+  // let rating = (this.reponse.result.rating * 100) / 5
+  // let note = String(rating) + "%"
+  // this.ratingStars = note
 
   getImage(apiKey, photoreference, maxWidth){
     console.log(this.detailsService.getImage(apiKey, photoreference, maxWidth));
