@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Platform } from '@ionic/angular';
-
+import { NavController } from '@ionic/angular';
 import { ToastController } from '@ionic/angular';
 
 @Component({
@@ -14,8 +14,9 @@ export class ProfilPage{
   getSelectedSubject = []
   lastPosition
   position
-  activities = ["Sport", "Restauration", "Art", "Magasin", "Cinema", "Park", "Casino", "Boite", "Bar", "Monument_religieux", "Beaute", "Animaux", "Librairie", "Nature"];
-  constructor(public toastController: ToastController) { 
+  activities = ["Aquarium", "Art", "Bar", "Beauté", "Boite", "Bowling", "Café", "Casino", "Cinéma", "Coiffeur", "Eglise", "Librairie", "Magasin", "Mosquée", "Musée", "Parc", "Parc de jeux", "Restauration", "Spa", "Shopping", "Sport", "Stade", "Synagogue", "Zoo"];
+  // activities = ["Sport", "Restauration", "Art", "Magasin", "Cinema", "Park", "Casino", "Boite", "Bar", "Monument_religieux", "Beaute", "Animaux", "Librairie", "Nature"];
+  constructor(public toastController: ToastController, private navCtrl: NavController) { 
   }
   async openToast() {
     const toast = await this.toastController.create({
@@ -24,6 +25,7 @@ export class ProfilPage{
     });
     toast.present();
     this.remplissageStockage();
+    this.navCtrl.navigateForward('tabs/home');
   }
 
 
@@ -38,14 +40,14 @@ export class ProfilPage{
   }
 
   allClickedCategories() {
-    this.getSelectedSubject = ["Sport", "Restauration", "Art", "Magasin", "Cinema", "Park", "Casino", "Boite", "Bar", "Monument_religieux", "Beaute", "Animaux", "Librairie", "Nature"];
+    this.getSelectedSubject = this.activities;
   }
 
 
   ngOnInit() {
     // initialise les données avec les données suavegarder dans le locale storage
     this.getSelectedSubject = JSON.parse(localStorage.getItem('activitiesSave'))
-    this.position = parseInt(localStorage.getItem("position"))
+    this.position = parseInt(localStorage.getItem("perimetre"))
     
   }
 
@@ -55,7 +57,7 @@ export class ProfilPage{
     localStorage.setItem('activitiesSave', this.activitiesSave);
 
     this.activitiesSave = JSON.stringify(this.position)
-    localStorage.setItem('position', this.position);
+    localStorage.setItem('perimetre', this.position);
   }
 
 }

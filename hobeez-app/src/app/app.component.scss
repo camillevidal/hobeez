@@ -1,10 +1,8 @@
-ion-app.cameraView #background-content, ion-app.cameraView, ion-app.cameraView ion-content{
-    background: transparent none !important;
-    visibility: hidden;
-  }
-
-ion-app.cameraView #showCam{
-  visibility: inherit;
-  display: block;
+.item-radio.item ion-label {
+  color: red; //your color here
 }
 
+.ion-option-items .item{
+  color : red;
+
+}

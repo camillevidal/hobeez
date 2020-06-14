@@ -13,10 +13,10 @@
 
 <ion-content>
   <div class="name">
-    <ion-label>NAME </ion-label>
+    <ion-label></ion-label>
   </div>
   <div class="information">
-    <ion-label>20 ans </ion-label>
+    <ion-label></ion-label>
     <ion-icon name="male-outline"></ion-icon>
   </div>
 
@@ -24,27 +24,37 @@
   <div class="img">
     <ion-img src="../../assets/images/bees.png"></ion-img>
   </div>
-  <div class="loisir">
-    <ion-label>Centre d'interet : </ion-label>
+  <div class="loisir" >  
 
     <ion-list>
       <ion-item>
-        <ion-label>Centre d'interet :</ion-label>
+        <ion-label color="success">Centre d'interet :</ion-label>
         <ion-select [value]="['tout']" multiple="true" [(ngModel)]="getSelectedSubject"  (ionChange)="getSelectedSubjectValue(getSelectedSubject)" 
-          cancelText="Retour" okText="Valider" style="color:black;">
-          <ion-select-option value="animaux">Animaux</ion-select-option>
-          <ion-select-option value="art">Art</ion-select-option>
-          <ion-select-option value="bar">Bar</ion-select-option>
-          <ion-select-option value="beaute">Beaute</ion-select-option>
-          <ion-select-option value="boite">Boite</ion-select-option>
-          <ion-select-option value="casino">Casino</ion-select-option>
-          <ion-select-option value="cinema">Cinema</ion-select-option>
-          <ion-select-option value="librairie">Librairie</ion-select-option>
-          <ion-select-option value="magasin">Magasin</ion-select-option>
-          <ion-select-option value="monument_religieux">Monument_religieux</ion-select-option>
-          <ion-select-option value="nature">Nature</ion-select-option>
-          <ion-select-option value="park">Park</ion-select-option>
-          <ion-select-option value="restauration">Restauration</ion-select-option>
+          cancelText="Retour" okText="Valider" style="color:#bf9056">
+          <ion-select-option value="Aquarium">Aquarium</ion-select-option>
+          <ion-select-option value="Art">Art</ion-select-option>
+          <ion-select-option value="Bar">Bar</ion-select-option>
+          <ion-select-option value="Beaute">Beauté</ion-select-option>
+          <ion-select-option value="Boite">Boite</ion-select-option>
+          <ion-select-option value="Bowling">Bowling</ion-select-option>
+          <ion-select-option value="Cafe">Café</ion-select-option>
+          <ion-select-option value="Casino">Casino</ion-select-option>
+          <ion-select-option value="Cinema">Cinéma</ion-select-option>
+          <ion-select-option value="Coiffeur">Coiffeur</ion-select-option>
+          <ion-select-option value="Eglise">Eglise</ion-select-option>
+          <ion-select-option value="Librairie">Librairie</ion-select-option>
+          <ion-select-option value="Magasin">Magasin</ion-select-option>
+          <ion-select-option value="Mosquee">Mosquée</ion-select-option>
+          <ion-select-option value="Musee">Musée</ion-select-option>
+          <ion-select-option value="Parc">Parc</ion-select-option>
+          <ion-select-option value="Parc_de_jeux">Parc de jeux</ion-select-option>
+          <ion-select-option value="Restauration">Restauration</ion-select-option>
+          <ion-select-option value="Spa">Spa</ion-select-option>
+          <ion-select-option value="Shopping">Shopping</ion-select-option>
+          <ion-select-option value="Sport">Sport</ion-select-option>
+          <ion-select-option value="Stade">Stade</ion-select-option>
+          <ion-select-option value="Synagogue">Synagogue</ion-select-option>
+          <ion-select-option value="Zoo">Zoo</ion-select-option>
         </ion-select>
       </ion-item>
       
@@ -53,11 +63,11 @@
   </div>
 
   <div class="rayon">
-    <ion-label>Rayon : </ion-label>
+    <ion-label color="success">Rayon : </ion-label>
   </div>
   <ion-item>
-    <ion-range min="1" max="50" color="warning" pin="true" step="1" [(ngModel)]="position">
-      <ion-label slot="end" color="black">{{position}} km</ion-label>
+    <ion-range min="1" max="50" color="success" pin="true" step="1" [(ngModel)]="position">
+      <ion-label slot="end" color="success">{{position}} km</ion-label>
 
     </ion-range>
   </ion-item>
