@@ -1,5 +1,7 @@
 import { Component, Input, ViewChildren, QueryList, ElementRef,Renderer2, Output, EventEmitter } from '@angular/core';
 import {HomePage} from '../home/home.page'
+import { NavController } from '@ionic/angular';
+
 @Component({
   selector: 'slide-loisirs',
   templateUrl: './slide-loisirs.page.html',
@@ -10,7 +12,8 @@ export class SlideLoisirsPage{
   @Input('cards') cards: Array<{
     img: string,
     title: string,
-    description: string
+    description: string,
+    place_id:string
   }>;
   @Output() choiceMade = new EventEmitter();
 
@@ -24,7 +27,7 @@ export class SlideLoisirsPage{
   heartVisible: boolean;
   crossVisible: boolean;
 
-  constructor(private renderer: Renderer2) { // we imported Renderer to be able to alter style's of elements safely
+  constructor(private renderer: Renderer2, private navCtrl: NavController) { // we imported Renderer to be able to alter style's of elements safely
   }
 
   userClickedButton(event, heart) {
@@ -131,6 +134,15 @@ emitChoice(heart, card) {
     payload: card
   })
 };
+
+details(index:number){
+  console.log(this.cards[index])
+  localStorage.removeItem("place_id")
+  localStorage.setItem("place_id", this.cards[index].place_id)
+  localStorage.removeItem("photo_reference")
+  localStorage.setItem("photo_reference", this.cards[index].img)
+  this.navCtrl.navigateForward('/tabs/details');
+}
 
 
 

@@ -9,6 +9,7 @@ import { ToastController } from '@ionic/angular';
   styleUrls: ['./profil.page.scss'],
 })
 export class ProfilPage{
+  open:boolean;
   activitiesSave = ""
   selectedType = []
   getSelectedSubject = []
@@ -17,7 +18,15 @@ export class ProfilPage{
   activities = ["Aquarium", "Art", "Bar", "Beauté", "Boite", "Bowling", "Café", "Casino", "Cinéma", "Coiffeur", "Eglise", "Librairie", "Magasin", "Mosquée", "Musée", "Parc", "Parc de jeux", "Restauration", "Spa", "Shopping", "Sport", "Stade", "Synagogue", "Zoo"];
   // activities = ["Sport", "Restauration", "Art", "Magasin", "Cinema", "Park", "Casino", "Boite", "Bar", "Monument_religieux", "Beaute", "Animaux", "Librairie", "Nature"];
   constructor(public toastController: ToastController, private navCtrl: NavController) { 
+    if(!localStorage.getItem("open_now") || localStorage.getItem("open_now") == null){
+      this.open = true;
+      localStorage.setItem("open_now", JSON.stringify(this.open))
+    }
+    else{
+      this.open = JSON.parse(localStorage.getItem("open_now"))
+    }
   }
+
   async openToast() {
     const toast = await this.toastController.create({
       message: 'Changement sauvegardé ',
@@ -26,6 +35,12 @@ export class ProfilPage{
     toast.present();
     this.remplissageStockage();
     this.navCtrl.navigateForward('tabs/home');
+  }
+
+
+  // change value of open_now in local storage
+  public notify() {
+    localStorage.setItem("open_now", JSON.stringify(this.open))
   }
 
 

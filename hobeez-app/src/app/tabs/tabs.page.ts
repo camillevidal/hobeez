@@ -15,9 +15,12 @@ export class TabsPage implements OnInit {
 
   profil(){
       this.navCtrl.navigateForward('tabs/profil');
-      // let hide = document.getElementById("logged")
-      // hide.style.visibility = "hidden"
 
   }
+
+  async logout(){
+    this.navCtrl.navigateForward('tabs/login');
+  }
+
 
 }

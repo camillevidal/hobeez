@@ -22,7 +22,7 @@
     "@angular/router": "~8.2.14",
     "@ionic-native/core": "^5.24.0",
     "@ionic-native/dialogs": "^5.22.0",
-    "@ionic-native/geolocation": "^5.24.0",
+    "@ionic-native/geolocation": "^5.26.0",
     "@ionic-native/google-maps": "^5.5.0",
     "@ionic-native/http": "^4.20.0",
     "@ionic-native/qr-scanner": "^5.22.0",

@@ -72,6 +72,24 @@
     </ion-range>
   </ion-item>
 
+  <div class="open">
+    <ion-list>
+      <ion-item>
+          <div>
+            <ion-label style="color: #bf9056;">Activité ouverte actuellement : </ion-label>
+          </div>
+          <div>
+            <ion-toggle class="openbtn" color="success" [(ngModel)]="open" (ionChange)="notify()"></ion-toggle>
+          </div>
+      </ion-item>
+    </ion-list>
+
+    <!-- <label class="switch">
+      <input type="checkbox">
+      <span class="slider round"></span>
+    </label> -->
+  </div>
+
   <!-- <div class="foyer">
     <ion-label>Composition foyer :</ion-label>
   </div>
