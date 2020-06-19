@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NavController } from '@ionic/angular';
+import { Router } from '@angular/router'; 
+
 
 @Component({
   selector: 'app-tabs',
@@ -8,9 +10,15 @@ import { NavController } from '@ionic/angular';
 })
 export class TabsPage implements OnInit {
 
-  constructor(private navCtrl: NavController) { }
+  login:boolean;
+
+  constructor(private navCtrl: NavController, private router: Router) { }
 
   ngOnInit() {
+    // this.login = false;
+    // if(this.router.url == '/login'){
+    //   this.login = true;
+    // }
   }
 
   profil(){
